@@ -18,8 +18,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Rotas
 
 const projectRoutes = require('./routes/project.routes');
+const authRoutes = require('./routes/auth.routes');
 
+// Rotas Publicas
+app.use('/auth', authRoutes);
+
+// Middleware de autenticação
+
+const authMiddleware = require('./middlewares/auth.middleware');
+
+app.use(authMiddleware);
+
+
+// Rotas Privadas que precisam de jwt
 app.use('/projects', projectRoutes);
+
 
 // exportar o meu app
 
