@@ -17,6 +17,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Rotas
 
+const projectRoutes = require('./routes/project.routes');
+
+app.use('/projects', projectRoutes);
 
 // exportar o meu app
 
