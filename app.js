@@ -18,8 +18,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Rotas
 
 const projectRoutes = require('./routes/project.routes');
+const authRoutes = require('./routes/auth.routes');
+
+// Rotas Publicas
+app.use('/auth', authRoutes);
+
 
 app.use('/projects', projectRoutes);
+
 
 // exportar o meu app
 
